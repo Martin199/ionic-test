@@ -1,0 +1,6 @@
+<ion-list *ngIf="listHeroes.length > 0">
+  <ion-item *ngFor="let heroe of listHeroes" (click)="redirect(heroe)">
+    <ion-img [src]="getUrls(heroe?.thumbnail?.path, heroe?.thumbnail?.extension)"></ion-img>
+    <ion-label>{{heroe.name}}</ion-label>
+  </ion-item>
+</ion-list>
