@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Device } from '@capacitor/device';
 import { LoadingController } from '@ionic/angular';
 
 @Injectable({
@@ -18,5 +19,16 @@ export class UtilsService {
 
   loading(){
     return this.loadingCtrl.create({spinner: 'crescent'});
+  }
+
+  async getDeviceLanguage(): Promise<string> {
+    try {
+      const info = await Device.getLanguageCode();
+      console.log('Language code:', info.value);
+      return info.value;
+    } catch (error) {
+      console.error('Error obtaining language code:', error);
+      return 'error';
+    }
   }
 }

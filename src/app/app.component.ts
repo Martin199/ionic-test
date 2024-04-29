@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { UtilsService } from './services/utils.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+
+  utilServices = inject(UtilsService);
+
+  constructor() {
+    this.utilServices.getDeviceLanguage().then(languageCode => {
+      console.log("El idioma del dispositivo es:", languageCode);
+    });
+  }
 }
