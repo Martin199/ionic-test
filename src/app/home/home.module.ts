@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { ListHeroesComponent } from './components/list-heroes/list-heroes.component';
 import { DetailsHeroesComponent } from './components/details-heroes/details-heroes.component';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [HomePage, ListHeroesComponent, DetailsHeroesComponent]
 })

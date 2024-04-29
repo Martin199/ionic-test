@@ -3,6 +3,7 @@ import { GeneralService } from 'src/app/services/general.service';
 import { Info, IResultsHeroes } from '../../interfaces/heroes-interfaces';
 import { UtilsService } from 'src/app/services/utils.service';
 import { finalize } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-list-heroes',
@@ -13,10 +14,16 @@ export class ListHeroesComponent implements OnInit {
 
   generalServices = inject(GeneralService);
   utilServices = inject(UtilsService);
-
+  translate = inject(TranslateService);
   listHeroes: IResultsHeroes[] = []
 
-  constructor() { }
+  constructor( ) { 
+    this.utilServices.getDeviceLanguage().then(languageCode => {
+      if (languageCode) {
+        this.translate.use(languageCode?.match(/en|es/) ? languageCode : 'es');
+      }
+    });
+  }
 
   async ngOnInit() {
     const loading = await this.utilServices.loading();

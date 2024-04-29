@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,14 @@ export class HeaderComponent  implements OnInit {
 
   @Input() backButton!: string;
   @Input() title!: string;
-  constructor() { }
+
+  translate = inject(TranslateService);
+
+  constructor() { 
+    this.translate.setDefaultLang('en');
+    const browserLang = this.translate.getBrowserLang();
+		this.translate.use(browserLang?.match(/en|es/) ? browserLang : 'es');
+  }
 
   ngOnInit() {}
 

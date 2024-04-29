@@ -2,5 +2,7 @@
   <ion-item *ngFor="let heroe of listHeroes" (click)="redirect(heroe)">
     <ion-img [src]="getUrls(heroe?.thumbnail?.path, heroe?.thumbnail?.extension)"></ion-img>
     <ion-label>{{heroe.name}}</ion-label>
+
+    <h1>{{ 'hello' | translate }}</h1>
   </ion-item>
 </ion-list>

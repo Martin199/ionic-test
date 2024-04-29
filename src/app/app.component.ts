@@ -10,9 +10,5 @@ export class AppComponent {
 
   utilServices = inject(UtilsService);
 
-  constructor() {
-    this.utilServices.getDeviceLanguage().then(languageCode => {
-      console.log("El idioma del dispositivo es:", languageCode);
-    });
-  }
+  constructor() {}
 }

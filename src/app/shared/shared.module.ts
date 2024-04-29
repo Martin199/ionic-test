@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header/header.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -10,7 +11,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
   declarations: [HeaderComponent, SpinnerComponent],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    TranslateModule
   ],
   exports: [
     HeaderComponent,
